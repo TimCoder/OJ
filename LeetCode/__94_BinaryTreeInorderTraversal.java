@@ -18,6 +18,24 @@ public class __94_BinaryTreeInorderTraversal {
             val = x;
         }
     }
+    
+    public List<Integer> inorderTraversal0(TreeNode root) {
+        List<Integer> list = new ArrayList<Integer>();
+        Stack<TreeNode> stack = new Stack<TreeNode>();  
+        TreeNode cur = root;
+        while (cur != null || !stack.isEmpty()) { 
+            while (cur != null) {
+                stack.push(cur);
+                cur = cur.left;
+            }
+            cur = stack.pop();
+            list.add(cur.val);  
+            cur = cur.right; 
+        }
+
+        return list;
+    }
+
 
     List<Integer> list = new ArrayList<Integer>();
 
@@ -30,11 +48,6 @@ public class __94_BinaryTreeInorderTraversal {
         return list;
     }
 
-    /*
-     *      1
-     *   4     2
-     *       3 
-     */
     public List<Integer> inorderTraversal2(TreeNode root) {
         List<Integer> list = new ArrayList<Integer>();
         Stack<TreeNode> stack = new Stack<TreeNode>();
