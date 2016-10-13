@@ -14,28 +14,24 @@ public class __112_PathSum {
 
     public boolean hasPathSum(TreeNode root, int sum) {
 
-        if (root == null) {
-            return false;
-        }
-
-        return hasPathSumHelper(root, 0, sum);
+        return hasPathSumHelper(root, sum);
 
     }
 
-    public boolean hasPathSumHelper(TreeNode root, int cur, int sum) {
+    public boolean hasPathSumHelper(TreeNode root, int sum) {
 
         if (root == null) {
             return false;
         }
 
-        cur = cur + root.val;
+        sum -= root.val;
         if (root.left == null && root.right == null) {
-            if (cur == sum) {
+            if (sum == 0) {
                 return true;
             }
         }
 
-        return hasPathSumHelper(root.left, cur, sum) || hasPathSumHelper(root.right, cur, sum);
+        return hasPathSumHelper(root.left, sum) || hasPathSumHelper(root.right, sum);
 
     }
 
