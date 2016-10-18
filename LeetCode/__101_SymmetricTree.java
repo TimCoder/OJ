@@ -1,7 +1,9 @@
 package tim.leetcode;
 
 import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
+import java.util.Queue;
 
 public class __101_SymmetricTree {
 
@@ -11,6 +13,49 @@ public class __101_SymmetricTree {
         TreeNode (int x) {
             val = x;
         }
+    }
+
+
+    public boolean isSymmetric(TreeNode root) {
+
+        if (root == null || (root.left == null && root.right == null)) {
+            return true;
+        }   
+
+        Queue<TreeNode> q = new LinkedList<>();
+        q.offer(root.left);
+        q.offer(root.right);
+        while (!q.isEmpty()) {
+            TreeNode left = q.poll();
+            TreeNode right = q.poll();
+            
+            if (left == null && right ==null) {
+                continue;
+            }
+            
+            if ((left != null && right == null) || (left == null && right != null) || (left.val != right.val)) {
+                return false;
+            }   
+            
+            q.offer(left.left);
+            q.offer(right.right);
+            q.offer(left.right);
+            q.offer(right.left);
+        }   
+
+        return true;
+         
+    }
+
+
+
+    /*
+    public boolean isSymmetric(TreeNode root) {
+        if (root == null) {
+            return true;
+        }
+        
+        return isSymetricHelper(root.left, root.right);
     }
 
     public boolean isSymetricHelper(TreeNode left, TreeNode right) {
@@ -28,14 +73,7 @@ public class __101_SymmetricTree {
         
         return isSymetricHelper(left.left, right.right) && isSymetricHelper(left.right, right.left);
     }
-
-    public boolean isSymmetric(TreeNode root) {
-        if (root == null) {
-            return true;
-        }
-        
-        return isSymetricHelper(root.left, root.right);
-    }
+    */
 
 
 
@@ -43,6 +81,9 @@ public class __101_SymmetricTree {
     //left and right traversal 2 times, compare the 2 sequence is equal?
     // Algorithm is Wrong!
     //e.g: [1,2,3,3,null,2,null]
+    //     1
+    //   2   3 
+    //  3   2  
     List<Integer> list = new ArrayList<Integer>();
 
     public void inorderTraversal(TreeNode root) {
