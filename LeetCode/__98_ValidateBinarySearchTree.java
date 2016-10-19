@@ -11,7 +11,39 @@ public class __98_ValidateBinarySearchTree {
         }
     }
     
+    /*
+     * time O(N) 
+    */
+    private TreeNode pre = null;
 
+    public boolean isValidBST(TreeNode root) {
+
+        // Traverse the tree in inorder.  
+        if (root != null) {
+            // Inorder traversal: left first.  
+            if (!isValidBST(root.left)) {
+                return false;
+            }
+
+            // Compare it with the previous value in inorder traversal.
+            if (pre != null && root.val <= pre.val) {
+                return false;
+            }
+
+            // Update the previous.
+            pre = root;
+
+            // Inorder traversal: right last.  
+            if (!isValidBST(root.right)) {
+                return false;
+            }
+        }
+
+        return true;
+    }
+
+    /*
+     // time O(N^2) 
     public boolean isValidBST(TreeNode root) {
 
         if (root == null || (root.left == null && root.right == null)) {
@@ -61,5 +93,5 @@ public class __98_ValidateBinarySearchTree {
         return pre.val;
 
     } 
-    
+    */ 
 }
