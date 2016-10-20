@@ -13,7 +13,7 @@ public class __105_ConstructBinaryTreefromPreorderandInorderTraversal {
 
     public TreeNode buildTree(int[] preorder, int[] inorder) {
 
-        if (preorder == null || preorder.length == 0 || inorder == null || inorder.length ==0) {            
+        if (preorder.length != inorder.length) {            
             return null;
         }
 
