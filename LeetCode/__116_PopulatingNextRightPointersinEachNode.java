@@ -15,7 +15,40 @@ public class __116_PopulatingNextRightPointersinEachNode {
         }
     }
 
+    
+    public void connect(TreeLinkNode root) {
+        
+        if (root == null) {
+            return ;
+        }
 
+        TreeLinkNode curCur = root;
+        TreeLinkNode curNext = curCur.left;
+        while (curCur != null && curNext != null) {
+            TreeLinkNode preNext = null;
+            while (curCur != null) {
+                if (preNext == null) {
+                    preNext = curCur.left;
+                } else {
+                    preNext.next = curCur.left;
+                    preNext = preNext.next;
+                }
+                preNext.next = preNext.right;
+                preNext = preNext.next;
+                curCur = curCur.next;
+            }
+            curCur = curNext;
+            curNext = curCur.next;
+        }
+        
+    }
+    
+
+
+    /*
+     * AC,but space O(N) and using more time
+     */
+    /*
     public void connect(TreeLinkNode root) {
         
         if (root == null) {
@@ -49,5 +82,6 @@ public class __116_PopulatingNextRightPointersinEachNode {
         }   
 
     }
+    */
 
 }
