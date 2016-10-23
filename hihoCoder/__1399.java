@@ -22,7 +22,7 @@ public class __1399 {
      *                 e, e, e.      3
      *          4. 4 ; o, o, (o, e,) o
      */
-    /*
+    /* time O(N)
     public static void main(String[] args) {
 
         Scanner in = new Scanner(System.in);
@@ -38,7 +38,6 @@ public class __1399 {
         lastIsOdd = isOdd(a[last]);
         Stack<Integer> stack = new Stack<>();
         for (int i = 1; i < N; ++i) {
-//            lastIsOdd = isOdd(a[last]);
             curIsOdd = isOdd(a[i]);
             if (lastIsOdd != curIsOdd) {
                 cnt -= 2;
@@ -51,18 +50,22 @@ public class __1399 {
                     } else {
                         ++i;
                         last = i;
+                        lastIsOdd = isOdd(a[last]);
                     }
                 }
             } else {
                 stack.push(last);
-                last = i;
             }
         }
 
         System.out.println(cnt);
 
     }
+
     */
+    /*
+     * time O(N)
+     */
     public static void main(String[] args) {
 
         Scanner in = new Scanner(System.in);
