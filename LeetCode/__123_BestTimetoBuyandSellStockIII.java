@@ -3,8 +3,47 @@ package tim.leetcode;
 public class __123_BestTimetoBuyandSellStockIII {
 
     /*
-     * time O(N^2)
+     *  time O(N), space O(N).
      */
+    public int maxProfit(int[] prices) {
+
+        if (prices == null || prices.length < 2) {
+            return 0;
+        }
+
+        int N = prices.length;
+
+        // DP from left to right
+        int[] left = new int[N];
+        left[0] = 0;
+        int min = prices[0];
+        for (int i = 1; i < N; ++i) {
+            min = Math.min(prices[i], min);
+            left[i] = Math.max(prices[i] - min, left[i-1]); 
+        }
+
+        // DP from right to left
+        int[] right = new int[N];
+        right[N-1] = 0;
+        int max = prices[N-1];
+        for (int i = N - 2; i >= 0; --i) {
+            max = Math.max(prices[i], max);
+            right[i] = Math.max(max - prices[i], right[i+1]);
+        }
+
+        int profit = 0;
+        for (int i = 0; i < N; ++i) {
+            profit = Math.max(left[i] + right[i], profit);
+        }
+
+        return profit;
+
+    }
+
+    /*
+     * time O(N^2), space O(1).
+     */
+    /*
     public int maxProfit(int[] prices) {
 
         if (prices == null || prices.length < 2) {
@@ -38,6 +77,7 @@ public class __123_BestTimetoBuyandSellStockIII {
         return max;
 
     }
+    */
 
     /*
      * WA, must sell before buy, most twice.
