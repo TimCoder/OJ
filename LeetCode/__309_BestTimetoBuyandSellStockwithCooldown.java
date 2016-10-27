@@ -4,7 +4,25 @@ public class __309_BestTimetoBuyandSellStockwithCooldown {
 
     /*
      * https://discuss.leetcode.com/topic/30421/share-my-thinking-process
+     * state : buy[i], sell[i], rest[i]. 
     */
+
+    public int maxProfit(int[] prices) {
+
+        int buy = Integer.MIN_VALUE, preBuy;
+        int sell = 0, preSell = 0;
+        for (int price : prices) {
+            preBuy = buy;
+            buy = Math.max(preSell - price, preBuy);// can't buy if yesterday just sell.
+            preSell = sell;
+            sell = Math.max(preBuy + price, preSell);//can't sell if last transaction was not buy.
+        }   
+
+        return sell;
+
+    }
+    
+    /*
     public int maxProfit(int[] prices) {
 
         // int N = prices.length;
@@ -30,7 +48,8 @@ public class __309_BestTimetoBuyandSellStockwithCooldown {
         return sell;
 
     }
-
+    */
+    
     /*
     public int maxProfit(int[] prices) {
 
