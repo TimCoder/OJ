@@ -7,6 +7,10 @@ public class __62_UniquePaths {
      */
     public int uniquePaths(int m, int n) {
         
+        if (m > n) {
+            return uniquePaths(n, m);
+        }
+        
         if (m == 1 || n == 1) {
             return 1;
         }
@@ -18,6 +22,7 @@ public class __62_UniquePaths {
         if (n == 2) {
             return m;
         } 
+        
         //cur line
         int[] cur = new int[n];
 
