@@ -2,6 +2,9 @@ package tim.leetcode;
 
 public class __152_MaximumProductSubarray {
 
+    /*
+     * Time: O(N), Space: O(1).
+     */
     public int maxProduct(int[] nums) {
         
         if (nums == null || nums.length == 0) {
@@ -28,7 +31,7 @@ public class __152_MaximumProductSubarray {
     /*
      * WA.
      * 169 / 183 test cases passed. 
-        */
+     */
     /*
     public int maxProduct(int[] nums) {
 
