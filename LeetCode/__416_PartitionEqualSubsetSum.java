@@ -1,11 +1,47 @@
 package tim.leetcode;
 
-public class __416_PartionEqualSubsetSum {
+public class __416_PartitionEqualSubsetSum {
+
+    /*
+     * Time : O(N * M), M = sum / 2, Space : O(N * M).
+     * using time : 32 ms.
+     */
+    public boolean canPartition(int[] nums) {
+        
+        // check edge case
+        if (nums == null || nums.length == 0) {
+            return true;
+        }
+        // preprocess
+        int volumn = 0;
+        for (int num : nums) {
+            volumn += num;
+        }
+        if (volumn % 2 != 0) {
+            return false;
+        }
+        volumn /= 2;
+        // dp def
+        boolean[] dp = new boolean[volumn + 1];
+        // dp init
+        dp[0] = true;
+        // dp transition
+        for (int i = 1; i <= nums.length; i++) {
+            for (int j = volumn; j >= nums[i-1]; j--) {
+                dp[j] = dp[j] || dp[j - nums[i-1]];
+            }
+        }
+        
+        return dp[volumn];
+        
+    }   
+
 
     /*
      * Time : O(N * M), M = sum / 2, Space : O(N * M).
      * using time : 65 ms.
      */
+    /*
     public boolean canPartition(int[] nums) {
 
         if (nums == null || nums.length < 2) {
@@ -22,16 +58,14 @@ public class __416_PartionEqualSubsetSum {
         }
         sum /= 2;
         //0, 1背包问题放满背包的方法数的简化版。
-        //dp[i][j] 前i个物品放到容量为j的背包里，有多少种方法。
+        //dp[i][j] 从前i个物品选，放满容量为j的背包，有多少种方法。
+        //此题的dp含义如下：
+        //dp[i][j] 从前i个物品选，能否正好放满容量为j的背包。
 
         boolean[][] dp = new boolean[N + 1][sum + 1];
         dp[0][0] = true;
         for (int j = 1; j < sum + 1; ++j) { 
             dp[0][j] = false;
-        }
-
-        for (int i = 1; i < N + 1; ++i) {
-            dp[i][0] = false;
         }
 
         for (int i = 1; i < N + 1; ++i) {
@@ -47,6 +81,7 @@ public class __416_PartionEqualSubsetSum {
         return dp[N][sum];
 
     }
+    */
 
     /*
      * TLE.
