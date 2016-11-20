@@ -18,14 +18,14 @@ public class __343_IntegerBreak {
         }
 
         if (n % 3 == 0) {
-            return Math.pow(3, n / 3);
+            return (int)Math.pow(3, n / 3);
         }
 
         if (n % 3 == 1) {
-            return 2 * 2 * Math.pow(3, n / 3 - 1);
+            return 2 * 2 * (int)Math.pow(3, n / 3 - 1);
         }
 
-        return 2 * Math.pow(3, n / 3);
+        return 2 * (int)Math.pow(3, n / 3);
     }
 
     /*

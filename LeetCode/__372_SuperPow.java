@@ -9,7 +9,7 @@ public class __372_SuperPow {
      * Suppose f(a, b) calculates a^b % k; Then translate above formula to using f :
      * f(a,1234567) = f(a, 1234560) * f(a, 7) % k = f(f(a, 123456),10) * f(a,7)%k;
      */
-    private base = 1337;
+    private int base = 1337;
 
     public int superPow(int a, int[] b) {
 

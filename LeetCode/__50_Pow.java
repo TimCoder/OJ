@@ -17,11 +17,13 @@ public class __50_Pow {
         }
 
         double res = 1.0;
-        for ( ; n > 0; x *=x, n >> 1) {
-            if (n & 1 > 0) {
+        for ( ; n > 0; x *=x, n >>= 1) {
+            if ((n & 1) > 0) {
                 res *= x;
             }
         }
+
+        return res;
 
     }
 
