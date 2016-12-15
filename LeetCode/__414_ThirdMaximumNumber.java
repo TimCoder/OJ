@@ -7,10 +7,6 @@ public class __414_ThirdMaximumNumber {
 
     public int thirdMax(int[] nums) {
 
-        if (nums == null || nums.length == 0) { 
-            return Integer.MIN_VALUE;
-        }
-
         Map<Integer, Integer> map = new HashMap<>();
         map.put(0, nums[0]);
         for (int i = 1; i < nums.length; ++i) {
