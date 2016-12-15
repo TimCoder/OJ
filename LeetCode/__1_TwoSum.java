@@ -2,10 +2,6 @@ package tim.leetcode;
 
 public class __1_TwoSum {
 
-    /*
-     *  [0,4,3,0]
-     *  0
-     */ 
     public int[] twoSum(int[] nums, int target) {
 
         int[] res = new int[2];
