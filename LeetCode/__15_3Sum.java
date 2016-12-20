@@ -10,7 +10,7 @@ public class __15_3Sum {
     public List<List<Integer>> threeSum(int[] nums) {
         Arrays.sort(nums);
         int n = nums.length;
-        for (int i = 0; i < n - 1; ++i) {
+        for (int i = 0; i < n - 2; ++i) {
             if (i == 0 || i > 0 && nums[i] != nums[i - 1]) { // skip same result
                 getTwoSum(nums, i + 1, n - 1, -nums[i]);
             }
