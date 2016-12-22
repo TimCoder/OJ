@@ -7,7 +7,7 @@ public class __53_MaximumSubarray {
      */
     public int maxSubArray(int[] nums) {
 
-        if (nums.length == 0) {
+        if (nums == null || nums.length == 0) {
             return Integer.MIN_VALUE;
         }
         int N = nums.length;
@@ -26,11 +26,11 @@ public class __53_MaximumSubarray {
 
     /*
      * dp, time O(N), space O(N).
-     *dp[i] means the maximum subarray ending with nums[i];
+     * dp[i] means the maximum subarray ending with nums[i];
     /*
     public int maxSubArray(int[] nums) {
 
-        if (nums.length == 0) {
+        if (nums == null || nums.length == 0) {
             return Integer.MIN_VALUE;
         }
         int N = nums.length;
