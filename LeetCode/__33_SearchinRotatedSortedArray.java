@@ -2,7 +2,7 @@ package tim.leetcode;
 
 public class __33_SearchinRotatedSortedArray {
     /*
-     * Test Case : 4,5,6,7,0,1,2.
+     * Time : O (log N).
      */
     public int search(int[] nums, int target) {
         if (nums == null || nums.length == 0) {
@@ -16,22 +16,14 @@ public class __33_SearchinRotatedSortedArray {
             if (nums[m] == target) {
                 return m;
             } else if (nums[m] < target) {
-                if (nums[m] >= head) {
-                    l = m + 1;
+                if (nums[m] < head && head <= target) {
+                    r = m - 1;
                 } else {
-                    if (head <= target) {
-                        r = m - 1;
-                    } else {
-                        l = m + 1;
-                    }
+                    l = m + 1;
                 }
             } else {
-                if (nums[m] >= head) {
-                    if (head <= target) {
-                        r = m - 1;
-                    } else {
-                        l = m + 1;
-                    }
+                if (nums[m] >= head && head > target) {
+                    l = m + 1;
                 } else {
                     r = m - 1;
                 }
