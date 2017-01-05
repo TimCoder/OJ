@@ -1,5 +1,8 @@
 package tim.leetcode;   
 
+import java.util.HashSet;
+import java.util.Set;
+
 public class __217_ContainsDuplicate {
     /*
      * Time : O(N * log N), Sapce : O(1).
@@ -17,7 +20,7 @@ public class __217_ContainsDuplicate {
     */
 
     /*
-     * Time : O(N * log N), Sapce : O(1).
+     * Time : O(N), Sapce : O(1).
      */
     public boolean containsDuplicate(int[] nums) {
         Set<Integer> set = new HashSet<>();

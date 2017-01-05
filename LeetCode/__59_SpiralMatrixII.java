@@ -1,6 +1,6 @@
 package tim.leetcode;
 
-public __59_SpiralMatrixII {
+public class __59_SpiralMatrixII {
 
     private int[][] res;
 

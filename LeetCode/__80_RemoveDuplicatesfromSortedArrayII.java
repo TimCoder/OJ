@@ -1,6 +1,6 @@
 package tim.leetcode;
 
-public class __80_RemoveDuplicates {
+public class __80_RemoveDuplicatesfromSortedArrayII {
     /*
      * Time : O(N), Space : O(1).
      * Expend 2 to k.

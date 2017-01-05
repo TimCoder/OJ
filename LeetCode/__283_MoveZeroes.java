@@ -1,6 +1,6 @@
 package tim.leetcode;
 
-public class __283_MoveZeros {
+public class __283_MoveZeroes {
     public void moveZeroes(int[] nums) {
         if (nums == null || nums.length == 0) {
             return;

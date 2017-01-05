@@ -1,5 +1,7 @@
 package tim.leetcode;
 
+import java.util.Arrays;
+
 public class __16_3SumClosest {
     private int res;
     private int target;
@@ -21,7 +23,7 @@ public class __16_3SumClosest {
         return res;
     }
 
-    public boolean findClosest(int a, int l, int r, int cur) {
+    public boolean findClosest(int[] a, int l, int r, int cur) {
         while (l < r) {
             int sum = cur + a[l] + a[r];
             if (sum == target) { 

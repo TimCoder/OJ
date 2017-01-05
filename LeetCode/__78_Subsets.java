@@ -1,5 +1,8 @@
 package tim.leetcode;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class __78_Subsets {
 
     /*
@@ -7,15 +10,15 @@ public class __78_Subsets {
      * first  : [[], [1], [1, 2], [1, 2, 3]]
      * second : [[], [1], [1, 2], [1, 2, 3], [1, 3], [2], [2, 3], [3]]
      */
-    /*
     public List<List<Integer>> subsets(int[] nums) {
         List<List<Integer>> res = new ArrayList<>();
-        backtrack(res, new ArrayList(), nums, 0);
+        //Arrays.sort(nums); // no need to sort.
+        backtrack(res, new ArrayList<Integer>(), nums, 0);
         return res;
     }
 
     public void backtrack(List<List<Integer>> res, List<Integer> tmp, int[] nums, int start) { 
-        res.add(new ArrayList(tmp));
+        res.add(new ArrayList<Integer>(tmp));
         for (int i = start; i < nums.length; ++i) {
             tmp.add(nums[i]);
             backtrack(res, tmp, nums, i + 1);
@@ -34,7 +37,6 @@ public class __78_Subsets {
         }
         System.out.println("]");
     }
-    */
 
     /*
      * Iterative
@@ -74,11 +76,12 @@ public class __78_Subsets {
 
      * [], [1], [2], [1, 2], [3], [1, 3], [2, 3], [1, 2, 3]
      */
+    /*
     public List<List<Integer>> subsets(int[] nums) {
         List<List<Integer>> res = new ArrayList<>();
         int n = (int) Math.pow(2, nums.length);
         for (int i = 0; i < n; ++i) {
-            res.add(new ArrayList<>());
+            res.add(new ArrayList<Integer>());
         }
 
         for (int i = 0; i < nums.length; ++i) {
@@ -90,5 +93,6 @@ public class __78_Subsets {
         }
         return res;
     }
+    */
 
 }

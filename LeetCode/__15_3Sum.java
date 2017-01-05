@@ -1,5 +1,9 @@
 package tim.leetcode;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
 public class __15_3Sum {
 
     /*

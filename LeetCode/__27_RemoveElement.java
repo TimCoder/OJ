@@ -1,6 +1,6 @@
 package tim.leetcode;
 
-public class __27_ReomveElement {
+public class __27_RemoveElement {
 
     public int removeElement(int[] nums, int val) {
 
