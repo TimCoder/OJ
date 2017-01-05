@@ -1,5 +1,7 @@
 package tim.leetcode;
 
+import java.util.HashMap;
+
 public class __446_ArithmeticSlicesII_Subsequence {
 
     /*
@@ -21,8 +23,18 @@ public class __446_ArithmeticSlicesII_Subsequence {
                 }
 
                 int d = (int)diff;
+                //JDK 1.8
+                /*
                 int sumI = map[i].getOrDefault(d, 0);
                 int sumJ = map[j].getOrDefault(d, 0);
+                */
+                int sumI = 0, sumJ = 0;
+                if (map[i].containsKey(d)) {
+                    sumI = map[i].get(d);
+                }
+                if (map[j].containsKey(d)) {
+                    sumJ = map[j].get(d);
+                }
                 res += sumJ;
                 map[i].put(d, sumI + sumJ + 1);
             }

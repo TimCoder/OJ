@@ -1,9 +1,13 @@
 package tim.leetcode;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class __46_Permutations {
     /*
-     * Recursion I
+     * Recursion I (can't deal with duplicate elements) 
      */
+    /*
     public List<List<Integer>> permute(int[] nums) {
         List<List<Integer>> res = new ArrayList<>();
         //Arrays.sort(nums); // not necessary
@@ -20,7 +24,7 @@ public class __46_Permutations {
             res.add(tmp);
         } else {
             for (int i = start; i < nums.length; ++i) {
-                swsp(nums, i, start);
+                swap(nums, i, start);
                 recursiveBySwap(res, nums, start + 1);
                 swap(nums, i, start);
             }
@@ -32,15 +36,15 @@ public class __46_Permutations {
         a[i] = a[j];
         a[j] = tmp;
     }
+    */
 
     /*
      * Recursion II
      */
-    /*
     public List<List<Integer>> permute(int[] nums) {
         List<List<Integer>> res = new ArrayList<>();
         //Arrays.sort(nums); // not necessary
-        backtrack(res, new ArrayList<>(), nums);
+        backtrack(res, new ArrayList<Integer>(), nums);
         return res;
     }
 
@@ -59,7 +63,6 @@ public class __46_Permutations {
             }
         }
     }
-    */
 
     public void printList(List<Integer> list) {
         if (list.size() == 0) {
