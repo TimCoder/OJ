@@ -2,22 +2,18 @@ package tim.targetOffer;
 
 public class HasSubtree {
     public boolean HasSubtree(TreeNode r1,TreeNode r2) {
+        boolean res = false;
         if (r1 != null && r2 != null) {
-            if (hasSubtreeHelper(r1, r2)) {
-                return true;
+            res = hasSubtreeHelper(r1, r2);
+            if (!res) {
+                res = HasSubtree(r1.left, r2);
             }
-            boolean res1 = false;
-            if (r1.left != null) {
-                res1 = HasSubtree(r1.left, r2);
+            if (!res) {
+                res = HasSubtree(r1.right, r2);
             }
-            boolean res2 = false;
-            if (r1.right != null) {
-                res2 = HasSubtree(r1.right, r2);
-            }
-            return res1 || res2;
         }
 
-        return false;
+        return res;
     }
 
     public boolean hasSubtreeHelper(TreeNode r1, TreeNode r2) {
@@ -30,10 +26,10 @@ public class HasSubtree {
             return false;
         }
 
-        if (r1.val == r2.val) {
-            return hasSubtreeHelper(r1.left, r2.left) && hasSubtreeHelper(r1.right, r2.right); 
+        if (r1.val != r2.val) {
+            return false;
         }
 
-        return false;
+        return hasSubtreeHelper(r1.left, r2.left) && hasSubtreeHelper(r1.right, r2.right); 
     }
 }
