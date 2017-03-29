@@ -1,6 +1,6 @@
 package tim.DP;
 
-public class Unique Paths {
+public class UniquePaths {
     public int uniquePaths(int m, int n) {
         if (m <= 0 || n <= 0) {
             return -1;
