@@ -9,20 +9,27 @@ public class BestTimetoBuyandSellStockIV {
      * dp[i, 0] = 0; if there is only one price data point you can't make any transaction.
      */
 
+    /**
+     * Space: O(N)
+    */
     public int maxProfit(int k, int[] prices) {
         if (prices.length < 2) return 0;
         if (k >= prices.length) return maxProfitHelper(prices);
         
-        int[][] dp = new int[k + 1][prices.length];
+        int[] dpPre = new int[prices.length];
+        int[] dp = new int[prices.length];
         for (int i = 1; i <= k; ++i) {
-            int localMax = dp[i - 1][0] - prices[0];
+            int localMax = dpPre[0] - prices[0];
             for (int j = 1; j < prices.length; ++j) {
-                dp[i][j] = Math.max(prices[j] + localMax, dp[i][j - 1]);
-                localMax = Math.max(dp[i - 1][j] - prices[j], localMax);
+                dp[j] = Math.max(prices[j] + localMax, dp[j - 1]);
+                localMax = Math.max(dpPre[j] - prices[j], localMax);
             }
+            int [] tmp = dp;
+            dp = dpPre;
+            dpPre = tmp;
         }
         
-        return dp[k][prices.length - 1];
+        return dpPre[prices.length - 1];
     }
 
     public int maxProfit2(int k, int[] prices) {
